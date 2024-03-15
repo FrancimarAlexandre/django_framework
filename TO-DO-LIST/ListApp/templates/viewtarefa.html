@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USUÁRIOS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .action-buttons button {
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            margin: 0 5px;
+        }
+
+        .edit-btn {
+            color: #ffc107;
+        }
+
+        .delete-btn {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="{% url 'home' %}"><button>voltar a página inicial</button></a>
+    <h2>Lista de Usuários</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>titulo</th>
+                <th>descrição</th>
+                <th>data da tarefa</th>
+                <th>data de criação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tarefa in contexto %}
+            <tr>
+                <td>{{ tarefa.titulo }}</td>
+                <td>{{ tarefa.descricao }}</td>
+                <td>{{ tarefa.data_tarefa }}</td>
+                <td>{{ tarefa.data_criacao }}</td>
+                <td class="action-buttons">
+
+                        <button class="edit-btn" title="Editar">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button class="delete-btn" title="Excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
