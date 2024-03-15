@@ -9,8 +9,8 @@ def home(request):
         usuario.username = request.POST.get('username')
         usuario.email = request.POST.get('email')
         usuario.senha = request.POST.get('password')
-        usuario.idade = request.POST.get('age')  # Corrigido para atribuir à instância
-        usuario.save()  # Corrigido para salvar a instância correta
+        usuario.idade = request.POST.get('age')  
+        usuario.save()  
     return render(request,'home.html')
  
 
