@@ -1,5 +1,8 @@
 # django_framework
 Repositório dedicado à explicação do framework Django
+# Resumo
+### O Django oferece uma estrutura que facilita o desenvolvimento de sites seguros e escaláveis. Compreender a função de cada arquivo e componente é crucial para aproveitar ao máximo o que o framework oferece. Essa visão geral cobre os aspectos essenciais, mas o Django tem muito mais a explorar, incluindo formulários, autenticação de usuários, sinais, e muito mais. Recomendo consultar a documentação oficial do Django para obter informações detalhadas e atualizadas.
+
 # Instalação
      pip install django
 # Estrutura básica de um projeto django
@@ -21,3 +24,25 @@ Repositório dedicado à explicação do framework Django
     São pontos de entrada para servidores web compatíveis com ASGI (Asynchronous Server Gateway Interface) ou WSGI (Web Server Gateway Interface), respectivamente. Isso permite que seu projeto Django seja servido em produção.
     # admin.py
     Embora não seja gerado automaticamente na pasta do projeto, este arquivo é criado dentro de cada aplicativo Django. É usado para configurar o site administrativo do Django, uma interface poderosa e automatizada para administrar seu site.
+
+
+
+
+# Estrutura básica de um aplicativo django
+  - criar um novo aplicativo
+    -      python manage.py startapp nome_do_app
+
+### Dentro de um projeto Django, você pode ter um ou vários aplicativos. Cada aplicativo contém um conjunto de arquivos similares:
+
+# migrations/:
+  -  Diretório que contém as migrações de banco de dados – arquivos que descrevem como fazer e desfazer as alterações feitas na estrutura do banco de dados.
+# models.py:
+  -  Define a estrutura dos dados do aplicativo, usando classes Python. Essas definições são convertidas pelo Django em tabelas de banco de dados.
+# views.py: 
+  - Contém a lógica de apresentação. As views recebem requisições web e retornam respostas. As respostas podem ser páginas HTML, redirecionamentos, arquivos para download, JSON para APIs, entre outros.
+# tests.py:
+  - Usado para escrever testes para o seu aplicativo.
+# apps.py:
+  - Usado para configurar metadados do aplicativo.
+# admin.py:
+  - Como mencionado anteriormente, é usado para configurar o site administrativo para o seu aplicativo.
