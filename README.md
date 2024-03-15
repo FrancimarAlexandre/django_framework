@@ -6,6 +6,7 @@ Repositório dedicado à explicação do framework Django
 # Instalação
      pip install django
 # Estrutura básica de um projeto django
+### Um projeto Django é composto por um ou mais aplicativos, que são módulos do projeto. Cada aplicativo contém funcionalidades específicas do projeto
   - Criar um novo projeto :
     -     django-admin startproject nome_do_projeto
 # São gerados automaticamente alguns arquivos 
