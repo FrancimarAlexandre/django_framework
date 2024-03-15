@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,get_object_or_404, redirect
 from .models import Usuario
 
 # Create your views here.
@@ -26,4 +26,19 @@ def deleteusers(request,id):
 
 # UPDATE
 def editusers(request,id):
-    return render(request,'editusers.html')
+    usuario = get_object_or_404(Usuario, pk=id)
+    if request.method == 'POST':
+        usuario.username = request.POST.get('username')
+        usuario.email = request.POST.get('email')
+        usuario.senha = request.POST.get('password')
+        usuario.idade = request.POST.get('age')
+        usuario.save()
+        return redirect(viewusers)
+    user = {
+        'id':usuario.id,
+        'username':usuario.username,
+        'email':usuario.email,
+        'senha':usuario.senha,
+        'idade':usuario.idade,
+    }
+    return render(request,'editusers.html',{'contexto':user})

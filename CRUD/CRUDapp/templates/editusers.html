@@ -71,16 +71,16 @@
     </style>
 </head>
 <body>
-    
 
-    <form action="{% url 'editusers' users.id %}" method="POST">
+    <form action="{% url 'editusers' contexto.id%}" method="POST">
+        {% csrf_token %}
         <div class="form-group">
             <label for="username">Nome de usuário:</label>
-            <input type="text" id="username" name="username" value="usuario123" required>
+            <input type="text" id="username" name="username" value="{{ contexto.username }}" required>
         </div>
         <div class="form-group">
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" value="usuario123@exemplo.com" required>
+            <input type="email" id="email" name="email" value="{{ contexto.email }}" required>
         </div>
         <div class="form-group">
             <label for="password">Nova senha (deixe em branco para manter a atual):</label>
@@ -88,11 +88,12 @@
         </div>
         <div class="form-group">
             <label for="age">Idade:</label>
-            <input type="number" id="age" name="age" value="25" required>
+            <input type="number" id="age" name="age" value="{{ contexto.idade }}" required>
         </div>
         <div class="form-group">
             <button type="submit">Salvar Alterações</button>
         </div>
     </form>
+  
 </body>
 </html>
