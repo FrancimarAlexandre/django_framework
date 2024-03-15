@@ -20,7 +20,7 @@ from API import viewsets
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'USUARIOS/',viewsets.UsuarioViewSet,basename = 'usuario')
+router.register(r'USUARIOS',viewsets.UsuarioViewSet,basename = 'usuario')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
