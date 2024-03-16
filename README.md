@@ -1,7 +1,7 @@
 # django_framework
 Repositório dedicado à explicação do framework Django
 # Resumo
-### O Django oferece uma estrutura que facilita o desenvolvimento de sites seguros e escaláveis. Compreender a função de cada arquivo e componente é crucial para aproveitar ao máximo o que o framework oferece. Essa visão geral cobre os aspectos essenciais, mas o Django tem muito mais a explorar, incluindo formulários, autenticação de usuários, sinais, e muito mais. Recomendo consultar a documentação oficial do Django para obter informações detalhadas e atualizadas.
+### O Django oferece uma estrutura que facilita o desenvolvimento de sites seguros e escaláveis. Compreender a função de cada arquivo e componente é crucial para aproveitar ao máximo o que o framework oferece. Essa visão geral cobre os aspectos essenciais, mas o Django tem muito mais a explorar, incluindo formulários, autenticação de usuários, sinais, e muito mais. Recomendo consultar a <a hreft = "https://docs.djangoproject.com/en/5.0/">documentação</a> oficial do Django para obter informações detalhadas e atualizadas.
 
 # Instalação
      pip install django
