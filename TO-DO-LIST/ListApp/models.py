@@ -8,7 +8,6 @@ class Tarefa(models.Model):
     data_criacao = models.DateField(auto_now_add = True)
     data_tarefa = models.DateField(auto_now_add = False)
     data_concluido = models.DateField(null=True)
-    atualizacao = models.DateField(null = True)
     concluida = models.BooleanField(default = False)
 
     def __str__(self):

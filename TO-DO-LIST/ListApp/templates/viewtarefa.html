@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USUÁRIOS</title>
+    <title>TAREFAS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         body {
@@ -13,6 +13,11 @@
             margin: 0;
             padding: 20px;
         }
+
+        .fas {
+            font-size: 20px;
+        }
+
         button {
             display: block;
             width: 100%;
@@ -64,18 +69,23 @@
         .delete-btn {
             color: #dc3545;
         }
+
+        .conf-btn {
+            color: rgb(15, 114, 15);
+        }
     </style>
 </head>
 
 <body>
     <a href="{% url 'home' %}"><button>voltar a página inicial</button></a>
-    <h2>Lista de Usuários</h2>
 
     <table>
         <thead>
             <tr>
+                <th>concluido</th>
                 <th>titulo</th>
                 <th>descrição</th>
+                <th>data concluído</th>
                 <th>data da tarefa</th>
                 <th>data de criação</th>
                 <th>ação</th>
@@ -84,19 +94,51 @@
         <tbody>
             {% for tarefa in contexto %}
             <tr>
+                {% if tarefa.concluida %}
+                <td class="action-buttons">
+                    <button class="conf-btn">
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                </td>
+                {% else %}
+                <td class="action-buttons">
+                    <button class="delete-btn">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </td>
+                {% endif %}
                 <td>{{ tarefa.titulo }}</td>
                 <td>{{ tarefa.descricao }}</td>
+                {% if tarefa.concluida %}
+                <td>
+                    {{ tarefa.data_concluido }}
+                </td>
+
+                {% else %}
+                <td class="action-buttons">
+                    <button class="delete-btn">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </td>
+                {% endif %}
                 <td>{{ tarefa.data_tarefa }}</td>
                 <td>{{ tarefa.data_criacao }}</td>
-                <td class="action-buttons">
 
-                        <button class="edit-btn" title="Editar">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
+                <td class="action-buttons">
+                    <form action="{% url 'delete' tarefa.id %}">
                         <button class="delete-btn" title="Excluir">
                             <i class="fas fa-trash"></i>
                         </button>
+                    </form>
+                    <form action="{% url 'concluido' tarefa.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="conf-btn" title="confirmar">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </form>
                 </td>
+
+
             </tr>
             {% endfor %}
         </tbody>

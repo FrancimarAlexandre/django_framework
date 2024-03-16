@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
     path('tarefa/',views.view_tarefa,name='tarefa'),
+    path('tarefa/delete/<int:id>/',views.delete_tarefa,name='delete'),
+    path('tarefa/concluir/<int:id>/',views.concluir_tarefa,name='concluido'),
 ]
