@@ -13,6 +13,7 @@ def view_tarefa(request):
 
 def home(request):
     if request.method == 'POST':
+        
         tarefa = Tarefa()
         tarefa.titulo = request.POST.get('titulo')
         tarefa.descricao = request.POST.get('descricao')

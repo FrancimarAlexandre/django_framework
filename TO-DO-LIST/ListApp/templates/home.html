@@ -61,7 +61,7 @@
 
     <div class="container">
         <h2>Adicionar Nova Tarefa</h2>
-        <form id="taskForm" action="{% url 'home' %}"" method=" post">
+        <form id="taskForm" action="{% url 'home' %}"" method="post">
             {% csrf_token %}
             <input type="text" id="title" placeholder="Título da Tarefa" name="titulo" required>
             <textarea id="description" placeholder="Descrição da Tarefa" name="descricao" rows="4" required></textarea>
