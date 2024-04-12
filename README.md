@@ -47,3 +47,30 @@ Repositório dedicado à explicação do framework Django
   - Usado para configurar metadados do aplicativo.
 # admin.py:
   - Como mencionado anteriormente, é usado para configurar o site administrativo para o seu aplicativo.
+
+
+# comandos usados no Django:
+ ## django-admin startproject nome_do_projeto
+   - Este comando cria um novo projeto Django. Ele gera a estrutura inicial do diretório do projeto, incluindo configurações básicas.
+ ## python manage.py startapp nome_da_app
+   - Usado para criar uma nova aplicação Django dentro do projeto. Cada aplicação pode conter seu próprio conjunto de modelos, vistas, formulários e testes.
+ ## python manage.py runserver
+   - Inicia um servidor de desenvolvimento local no endereço http://127.0.0.1:8000/. Este comando é muito útil para desenvolvimento e teste rápido.
+ ## python manage.py createsuperuser
+   - Cria um usuário administrador (superuser), permitindo acesso ao Django Admin, uma interface auto-gerada para administração de conteúdo do site.
+ ## python manage.py makemigrations
+   - Identifica mudanças feitas nos modelos (models) e prepara arquivos de migração, que são scripts para ajustar o esquema do banco de dados.
+ ## python manage.py migrate
+   - Aplica as migrações ao banco de dados. Este comando atualiza o banco de dados com as novas alterações feitas nos modelos.
+ ## python manage.py collectstatic
+   - Coleta arquivos estáticos das apps e de outros lugares em uma localização central que pode ser servida em produção.
+ ## python manage.py test
+   - Roda os testes definidos nas aplicações do projeto Django. É uma forma essencial de verificar a integridade do código ao fazer mudanças.
+ ## python manage.py shell
+   - Abre o shell interativo do Django, que é um Python shell com o ambiente do Django configurado. É útil para interagir diretamente com os componentes do Django, como modelos e consultas ao banco de dados.
+ ## python manage.py dbshell
+   - Fornece acesso ao shell do banco de dados, útil para consultas diretas ao banco de dados ou para administração.
+ ## python manage.py dumpdata
+   - Usado para criar um backup dos dados do banco de dados. Gera saída em vários formatos (incluindo JSON e XML).
+ ## python manage.py loaddata
+   - Carrega dados no banco de dados a partir de um arquivo. É usado frequentemente em conjunto com o comando dumpdata
