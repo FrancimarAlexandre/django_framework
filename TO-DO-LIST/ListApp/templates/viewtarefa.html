@@ -128,12 +128,15 @@
                             <i class="fas fa-trash"></i>
                         </button>
                     </form>
+                {% if not tarefa.concluida %}
+
                     <form action="{% url 'concluido' tarefa.id %}" method="post">
                         {% csrf_token %}
                         <button class="conf-btn" title="confirmar">
                             <i class="fas fa-check"></i>
                         </button>
                     </form>
+                {% endif %}
                 </td>
 
 
