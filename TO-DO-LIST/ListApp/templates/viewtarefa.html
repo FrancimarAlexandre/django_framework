@@ -85,9 +85,9 @@
                 <th>concluido</th>
                 <th>titulo</th>
                 <th>descrição</th>
-                <th>data concluído</th>
                 <th>data da tarefa</th>
-                <th>data de criação</th>
+                
+                <th>data concluído</th>
                 <th>ação</th>
             </tr>
         </thead>
@@ -111,6 +111,8 @@
                 {% endif %}
                 <td>{{ tarefa.titulo }}</td>
                 <td>{{ tarefa.descricao }}</td>
+                <td>{{ tarefa.data_tarefa }}</td>
+               
                 {% if tarefa.concluida %}
                 <td>
                     {{ tarefa.data_concluido }}
@@ -121,8 +123,6 @@
                     ---
                 </td>
                 {% endif %}
-                <td>{{ tarefa.data_tarefa }}</td>
-                <td>{{ tarefa.data_criacao }}</td>
 
                 <td class="action-buttons">
                     <form action="{% url 'delete' tarefa.id %}">
@@ -139,6 +139,12 @@
                         </button>
                     </form>
                     {% endif %}
+                    <form action="{% url 'editar' tarefa.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="edit-btn">
+                            <i class="fas fa-pencil"></i>
+                        </button>
+                    </form>
                 </td>
                 
             

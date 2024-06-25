@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas - Editar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input,
+        textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: calc(100% - 20px);
+        }
+        button,
+        .button-link {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        button:hover,
+        .button-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Editar Tarefa</h2>
+        <form id="taskForm" action="{% url 'editar' tarefa.id %}" method="post">
+            {% csrf_token %}
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+            <input type="text" id="title" placeholder="Título da Tarefa" name="titulo" required value="{{ tarefa.titulo }}">
+            <textarea id="description" placeholder="Descrição da Tarefa" name="descricao" rows="4" required>{{ tarefa.descricao }}</textarea>
+            <input type="date" id="dueDate" name="data_tarefa" required value="{{ tarefa.data_tarefa|date:'Y-m-d' }}">
+            <button type="submit">Salvar Tarefa</button>
+        </form>
+        <a href="{% url 'tarefa' %}" class="button-link">Cancelar</a>
+    </div>
+</body>
+</html>

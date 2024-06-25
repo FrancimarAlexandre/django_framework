@@ -38,3 +38,24 @@ def concluir_tarefa(request,id):
         tarefa.save()
     return redirect(view_tarefa)
 
+# Editar terafa
+
+def editar_tarefa(request, id):
+    tarefa = get_object_or_404(Tarefa, pk=id)
+    
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+        data_tarefa = request.POST.get('data_tarefa')
+        
+        if titulo and descricao and data_tarefa:
+            tarefa.titulo = titulo
+            tarefa.descricao = descricao
+            tarefa.data_tarefa = data_tarefa
+            tarefa.concluida = False
+            tarefa.save()
+            return redirect(view_tarefa)
+        else:
+            return render(request, 'editartarefa.html', {'tarefa': tarefa, 'error': 'Todos os campos são obrigatórios.'})
+    
+    return render(request, 'editartarefa.html', {'tarefa': tarefa})
