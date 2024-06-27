@@ -74,3 +74,14 @@ Repositório dedicado à explicação do framework Django
    - Usado para criar um backup dos dados do banco de dados. Gera saída em vários formatos (incluindo JSON e XML).
  ## python manage.py loaddata
    - Carrega dados no banco de dados a partir de um arquivo. É usado frequentemente em conjunto com o comando dumpdata
+
+# Arquitetura Django - MVT (Models, Views e Templates)
+
+## Models
+   - Mapeamento do Banco de Dados.
+
+## Views
+   - Lógica de negócios, onde determinamos o que vai acontecer no seu projeto.
+
+## Templates
+   - Páginas HTML para visualização de dados, que serão renderizadas pelo navegador.
